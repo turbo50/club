@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Préparation du projet PHP Club"
+  build:
+    commands:
+      - echo "Compression du projet Club"
+      - zip -r club.zip *
+artifacts:
+  files:
+    - club.zip
