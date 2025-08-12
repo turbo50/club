@@ -2,14 +2,15 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/club
+    destination: /var/www/html
+
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies.sh
       timeout: 300
-      runas: ec2-user
-  AfterInstall:
+      runas: root
+
+  ApplicationStart:
     - location: scripts/start_server.sh
       timeout: 300
-      runas: ec2-user
-
+      runas: root
