@@ -1,13 +1,22 @@
 #!/bin/bash
-# Arrêt du script si une commande échoue
 set -e
 
-echo "===== Mise à jour des paquets ====="
-sudo yum update -y
+echo "===== Détection de la version Amazon Linux ====="
+OS_VERSION=$(cat /etc/os-release | grep VERSION_ID | cut -d '"' -f 2)
 
-echo "===== Installation d'Apache et PHP ====="
-sudo amazon-linux-extras enable php8.0
-sudo yum install -y php php-cli php-common php-mbstring php-xml httpd
+if [[ "$OS_VERSION" == "2" ]]; then
+    echo "Amazon Linux 2 détecté"
+    sudo yum update -y
+    sudo amazon-linux-extras enable php8.0
+    sudo yum install -y php php-cli php-common php-mbstring php-xml httpd
+elif [[ "$OS_VERSION" == "2023" ]]; then
+    echo "Amazon Linux 2023 détecté"
+    sudo dnf update -y
+    sudo dnf install -y php-cli php-common php-mbstring php-xml httpd
+else
+    echo "Version Amazon Linux inconnue : $OS_VERSION"
+    exit 1
+fi
 
 echo "===== Activation et démarrage d'Apache ====="
 sudo systemctl enable httpd
