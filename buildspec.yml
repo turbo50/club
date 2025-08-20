@@ -8,6 +8,7 @@ phases:
     commands:
       - echo "Compression du projet Club"
       - echo "${pwd}"
+      - pwd
       - zip -r club.zip css/ imgs/ js/ screens/ scripts/ *.*
 artifacts:
   files:
