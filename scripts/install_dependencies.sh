@@ -22,6 +22,9 @@ echo "===== Configuration Apache : index.php comme page par défaut ====="
 if ! grep -q "DirectoryIndex index.php" /etc/httpd/conf/httpd.conf; then
     echo "DirectoryIndex index.php index.html" | sudo tee -a /etc/httpd/conf/httpd.conf
 fi
+#on passe les variables d'environnement
+#echo "SetEnv AWS_SECRET_NAME club/test/pwdbdd" | sudo tee -a /etc/httpd/conf.d/env.conf
+
 echo "===== Activation et démarrage d'Apache ====="
 sudo systemctl enable httpd
 sudo systemctl start httpd
