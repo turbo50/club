@@ -7,8 +7,7 @@ phases:
   build:
     commands:
       - echo "Compression du projet Club"
-      - mkdir -p output
-      - zip -r output/club.zip *
+      - zip -r ../club.zip .
 artifacts:
   files:
-    - output/club.zip
+    - club.zip
