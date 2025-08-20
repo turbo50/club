@@ -10,7 +10,8 @@ phases:
       # On crée un zip propre de l’application
       - mkdir -p output/club
       #- zip -r output/club-app.zip . -x "output/*"
-      - cp -r * output/club/
+      - rsync -av --exclude='output/club/' ./ output/club/
+
 
 artifacts:
   files:
