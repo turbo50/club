@@ -1,14 +1,14 @@
 #!/bin/bash
 set -e
-echo "Installation des dépendances et dézippage du projet"
-
-# Installer unzip si nécessaire
-if ! command -v unzip &> /dev/null; then
-  yum install -y unzip
-fi
-
-# Extraire le zip dans /var/www/html (racine du site Apache)
-unzip -o /tmp/club.zip -d /var/www/html/
+#echo "Installation des dépendances et dézippage du projet"
+#
+## Installer unzip si nécessaire
+#if ! command -v unzip &> /dev/null; then
+#  yum install -y unzip
+#fi
+#
+## Extraire le zip dans /var/www/html (racine du site Apache)
+#unzip -o /tmp/club.zip -d /var/www/html/
 
 # Modifier les permissions
 chown -R apache:apache /var/www/html
