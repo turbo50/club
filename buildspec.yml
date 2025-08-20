@@ -8,11 +8,9 @@ phases:
     commands:
       - echo "Post-build phase - preparing artifact"
       # On crée un zip propre de l’application
-      #- mkdir -p output/club
       - zip -r club.zip .
 
 
 artifacts:
   files:
-    #- output/club-app.zip
      - club.zip

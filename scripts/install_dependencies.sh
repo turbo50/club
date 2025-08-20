@@ -17,7 +17,11 @@ else
     echo "Version Amazon Linux inconnue : $OS_VERSION"
     exit 1
 fi
-
+echo "===== Configuration Apache : index.php comme page par défaut ====="
+# Vérifie si déjà présent, sinon ajoute
+if ! grep -q "DirectoryIndex index.php" /etc/httpd/conf/httpd.conf; then
+    echo "DirectoryIndex index.php index.html" | sudo tee -a /etc/httpd/conf/httpd.conf
+fi
 echo "===== Activation et démarrage d'Apache ====="
 sudo systemctl enable httpd
 sudo systemctl start httpd
