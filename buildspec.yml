@@ -10,4 +10,4 @@ phases:
       - zip -r ../club.zip .
 artifacts:
   files:
-    - club.zip
+    - ../club.zip
