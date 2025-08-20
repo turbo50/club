@@ -6,10 +6,11 @@ phases:
       - echo "Préparation du projet PHP Club"
   build:
     commands:
-      - echo "Compression du projet Club"
-      - echo "${pwd}"
-      - pwd
-      - zip -r club.zip css/ imgs/ js/ screens/ scripts/ *.*
+      - echo "Post-build phase - preparing artifact"
+      # On crée un zip propre de l’application
+      - mkdir -p output
+      - zip -r output/club-app.zip . -x "output/*"
+
 artifacts:
   files:
-    - club.zip
+    - output/club-app.zip
