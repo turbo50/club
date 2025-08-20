@@ -8,13 +8,9 @@ phases:
     commands:
       - echo "Post-build phase - preparing artifact"
       # On crée un zip propre de l’application
-      - echo "AWS_SECRET_NAME=$AWS_SECRET_NAME" > .env
       - zip -r club.zip .
-
 
 
 artifacts:
   files:
      - club.zip
-     #- '**/*'
-     #- '.env'
